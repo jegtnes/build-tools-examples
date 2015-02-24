@@ -1,0 +1,8 @@
+h1 {
+  font: 3em sans-serif;
+}
+
+h1:before,
+h1:after {
+  content: "~*~*~"
+}
