@@ -2,7 +2,7 @@ var gulp = require('gulp');
 var sass = require('gulp-sass');
 var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
-
+var imagemin = require('gulp-imagemin');
 
 gulp.task('styles', function() {
   gulp.src('./assets/styles/site.scss')
@@ -14,7 +14,7 @@ gulp.task('styles', function() {
 });
 
 gulp.task('scripts', function() {
-  return gulp.src(
+  gulp.src(
            ['./assets/scripts/jquery.js',
             './assets/scripts/jquery.flexslider.js',
             './assets/scripts/site.js']
@@ -22,4 +22,13 @@ gulp.task('scripts', function() {
     .pipe(uglify())
     .pipe(concat('site.js'))
     .pipe(gulp.dest('./dist/scripts'))
+});
+
+gulp.task('images', function () {
+  gulp.src('./assets/images/*')
+    .pipe(imagemin({
+      progressive: true,
+      optimizationLevel: 5,
+    }))
+    .pipe(gulp.dest('./dist/images'))
 });
