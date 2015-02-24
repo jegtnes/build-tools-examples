@@ -13,12 +13,16 @@ gulp.task('sass', function() {
     .pipe(gulp.dest('./dist/styles'))
 });
 
+// Flexslider uses an icon font and our CSS has a relative path.
+// Thus, we move fonts over to the dist folder as well
 gulp.task('fonts', function() {
   gulp.src('./assets/fonts/*')
     .pipe(gulp.dest('./dist/fonts'))
 });
 
 gulp.task('scripts', function() {
+  // These files are processed in order, instead of globbing js/*
+  // as site requires flexslider requires jquery
   gulp.src(
            ['./assets/scripts/jquery.js',
             './assets/scripts/jquery.flexslider.js',
@@ -38,4 +42,5 @@ gulp.task('images', function () {
     .pipe(gulp.dest('./dist/images'))
 });
 
+// When running the Styles task, move over fonts before compiling Sass
 gulp.task('styles', ['fonts', 'sass'])
