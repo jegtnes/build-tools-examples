@@ -1,3 +1,5 @@
+@import 'flexslider';
+
 h1 {
   font: 3em sans-serif;
   text-align: center;
@@ -5,7 +7,7 @@ h1 {
 
 h1:before,
 h1:after {
-  content: "~*~*~"
+  content: '~*~*~';
 }
 
 .flexslider {

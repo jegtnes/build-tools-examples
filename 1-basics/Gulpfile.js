@@ -4,13 +4,18 @@ var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
 var imagemin = require('gulp-imagemin');
 
-gulp.task('styles', function() {
+gulp.task('sass', function() {
   gulp.src('./assets/styles/site.scss')
     .pipe(sass({
       errLogToConsole: true,
       outputStyle: "compressed"
     }))
     .pipe(gulp.dest('./dist/styles'))
+});
+
+gulp.task('fonts', function() {
+  gulp.src('./assets/fonts/*')
+    .pipe(gulp.dest('./dist/fonts'))
 });
 
 gulp.task('scripts', function() {
@@ -32,3 +37,5 @@ gulp.task('images', function () {
     }))
     .pipe(gulp.dest('./dist/images'))
 });
+
+gulp.task('styles', ['fonts', 'sass'])
