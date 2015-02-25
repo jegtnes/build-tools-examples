@@ -5,19 +5,19 @@ var uglify = require('gulp-uglify');
 var imagemin = require('gulp-imagemin');
 
 var assetPaths = {
-  scripts: ['./assets/scripts/jquery.js',
-            './assets/scripts/jquery.flexslider.js',
-            './assets/scripts/site.js'],
-  images:   './assets/images/*',
-  fonts:    './assets/fonts/*',
-  styles:   './assets/styles/site.scss'
+  scripts: ['assets/scripts/jquery.js',
+            'assets/scripts/jquery.flexslider.js',
+            'assets/scripts/site.js'],
+  images:   'assets/images/**/*.jpg',
+  fonts:    'assets/fonts/**/*',
+  styles:   'assets/styles/site.scss'
 }
 
 var distPaths = {
-  scripts: './dist/scripts',
-  images:  './dist/images',
-  fonts:   './dist/fonts',
-  styles:  './dist/styles'
+  scripts: 'dist/scripts',
+  images:  'dist/images',
+  fonts:   'dist/fonts',
+  styles:  'dist/styles'
 }
 
 gulp.task('sass', function() {
