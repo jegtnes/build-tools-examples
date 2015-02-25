@@ -1,0 +1,16 @@
+{
+  "name": "build-tools-example-1",
+  "version": "1.0.0",
+  "description": "Basic build tools stuff",
+  "repository": "https://github.com/jegtnes/build-tools-examples",
+  "readme": "This is only here to get NPM to shut up during the install process",
+  "devDependencies": {
+    "browser-sync": "^2.2.1",
+    "gulp": "^3.8.11",
+    "gulp-concat": "^2.5.2",
+    "gulp-imagemin": "^2.2.0",
+    "gulp-newer": "^0.5.0",
+    "gulp-sass": "^1.3.3",
+    "gulp-uglify": "^1.1.0"
+  }
+}
