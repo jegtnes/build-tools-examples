@@ -58,12 +58,6 @@ gulp.task('images', function () {
     .pipe(gulp.dest(distPaths.images))
 });
 
-gulp.task('watch', function() {
-  gulp.watch(assetPaths.scripts, ['scripts']);
-  gulp.watch(assetPaths.styles, ['sass']);
-  gulp.watch(assetPaths.images, ['images']);
-});
-
 gulp.task('serve', ['sass'], function() {
   browserSync({
     server: "./"
