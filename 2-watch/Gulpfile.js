@@ -54,6 +54,12 @@ gulp.task('images', function () {
     .pipe(gulp.dest(distPaths.images))
 });
 
+gulp.task('watch', function() {
+  gulp.watch(assetPaths.scripts, ['scripts']);
+  gulp.watch(assetPaths.styles, ['sass']);
+  gulp.watch(assetPaths.images, ['images']);
+});
+
 // When running the Styles task, move over fonts before compiling Sass
 gulp.task('styles', ['fonts', 'sass'])
 
