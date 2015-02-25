@@ -5,6 +5,9 @@ var uglify = require('gulp-uglify');
 var imagemin = require('gulp-imagemin');
 var newer = require('gulp-newer');
 var critical = require('critical');
+var smoosher = require('gulp-smoosher');
+var rename = require('gulp-rename');
+var fs = require('fs');
 
 var browserSync = require('browser-sync');
 var reload = browserSync.reload;
@@ -75,14 +78,23 @@ gulp.task('serve', ['sass'], function() {
   gulp.watch(assetPaths.html).on('change', reload);
 });
 
-gulp.task('critical', function () {
+gulp.task('criticalCSS', function () {
+  fs.writeFile('dist/styles/inline.css', '');
   critical.generate({
     base: './',
     src: 'index.html',
-    dest: 'dist/styles-inline.css',
+    dest: 'dist/styles/inline.css',
+    minify: true,
     width: 320,
     height: 480
-  });
+  }
+});
+
+gulp.task('inlineCriticalCSS', ['criticalCSS'], function() {
+  return gulp.src('./index.html')
+    .pipe(smoosher())
+    .pipe(rename({ suffix: '-inline' }))
+    .pipe(gulp.dest('./'));
 });
 
 // When running the Styles task, move over fonts before compiling Sass
