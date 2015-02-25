@@ -78,26 +78,29 @@ gulp.task('serve', ['sass'], function() {
   gulp.watch(assetPaths.html).on('change', reload);
 });
 
-gulp.task('criticalCSS', function () {
+gulp.task('criticalCSS', function(cb) {
   fs.writeFile('dist/styles/inline.css', '');
   critical.generate({
     base: './',
     src: 'index.html',
     dest: 'dist/styles/inline.css',
     minify: true,
-    width: 320,
-    height: 480
+    width: 1024,
+    height: 768
   })
+  cb();
 })
 
-gulp.task('inlineCriticalCSS', ['criticalCSS'], function() {
+gulp.task('inlineCriticalCSS', function() {
   return gulp.src('./index.html')
+    .pipe(rename({suffix: '-inline' }))
     .pipe(smoosher())
-    .pipe(rename({ suffix: '-inline' }))
     .pipe(gulp.dest('./'));
 });
 
 // When running the Styles task, move over fonts before compiling Sass
 gulp.task('styles', ['fonts', 'sass'])
+
+gulp.task('inline', ['criticalCSS', 'inlineCriticalCSS'])
 
 gulp.task('default', ['styles', 'scripts', 'images'])
