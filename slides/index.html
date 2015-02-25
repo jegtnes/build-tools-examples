@@ -150,6 +150,72 @@
 					<img class="fragment" src="img/wizard.gif" alt="" width="1920">
 				</section>
 
+				<section data-background="img/piglet.jpg">
+					<div class="translucent">
+						<h1>Grunt</h1>
+						<h2 class="fragment">1.1 million downloads in last month</h2>
+						<h2 class="fragment">4285 plugins</h2>
+						<h2 class="fragment">since September 2011</h2>
+					</div>
+				</section>
+
+				<section>
+					<pre><code data-trim contenteditable>
+grunt.loadNpmTasks('grunt-contrib-concat');
+
+grunt.initConfig({
+  concat: {
+    files: {
+      'dist/standalone.js': ['src/main.js', 'src/shim.js'],
+    },
+  },
+});
+						</code></pre>
+				</section>
+
+				<section data-background="img/gulp.jpg">
+					<div class="translucent">
+						<h1>Gulp</h1>
+						<h2 class="fragment">770K downloads in last month</h2>
+						<h2 class="fragment">1311 plugins</h2>
+						<h2 class="fragment">since July 2013</h2>
+					</div>
+				</section>
+
+				<section>
+					<pre><code data-trim contenteditable>
+var concat = require('gulp-concat');
+
+gulp.task('scripts', function() {
+  return gulp.src(['src/main.js', 'src/shim.js'])
+    .pipe(concat('standalone.js'))
+    .pipe(gulp.dest('dist'));
+});
+					</code></pre>
+				</section>
+
+				<section data-background="img/broccoli.jpg">
+					<div class="translucent">
+						<h1>Broccoli</h1>
+						<h2 class="fragment">15K downloads in last month</h2>
+						<h2 class="fragment">198 plugins</h2>
+						<h2 class="fragment">since January 2014</h2>
+					</div>
+				</section>
+
+				<section>
+					<pre><code data-trim contenteditable>
+var concat = require('broccoli-concat');
+
+var concatenated = concat(sourceTree, {
+  inputFiles: [
+    'src/main.js', 'src/shim.js'
+  ],
+  outputFile: 'dist/standalone.js',
+});
+					</code></pre>
+				</section>
+
 				<section>
 					<h2>Pretty Code</h2>
 					<pre><code data-trim contenteditable>
