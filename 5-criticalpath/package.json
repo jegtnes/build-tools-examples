@@ -6,6 +6,7 @@
   "readme": "This is only here to get NPM to shut up during the install process",
   "devDependencies": {
     "browser-sync": "^2.2.1",
+    "critical": "^0.5.4",
     "gulp": "^3.8.11",
     "gulp-concat": "^2.5.2",
     "gulp-imagemin": "^2.2.0",

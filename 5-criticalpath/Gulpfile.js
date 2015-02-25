@@ -4,6 +4,7 @@ var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
 var imagemin = require('gulp-imagemin');
 var newer = require('gulp-newer');
+var critical = require('critical');
 
 var browserSync = require('browser-sync');
 var reload = browserSync.reload;
@@ -72,6 +73,16 @@ gulp.task('serve', ['sass'], function() {
   gulp.watch(assetPaths.styles, ['sass']);
   gulp.watch(assetPaths.images, ['images']).on('change', reload);
   gulp.watch(assetPaths.html).on('change', reload);
+});
+
+gulp.task('critical', function () {
+  critical.generate({
+    base: './',
+    src: 'index.html',
+    dest: 'dist/styles-inline.css',
+    width: 320,
+    height: 480
+  });
 });
 
 // When running the Styles task, move over fonts before compiling Sass
