@@ -3,6 +3,8 @@ var sass = require('gulp-sass');
 var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
 var imagemin = require('gulp-imagemin');
+var newer = require('gulp-newer');
+
 var browserSync = require('browser-sync');
 var reload = browserSync.reload;
 
@@ -37,6 +39,7 @@ gulp.task('sass', function() {
 // Thus, we move fonts over to the dist folder as well
 gulp.task('fonts', function() {
   gulp.src(assetPaths.fonts)
+    .pipe(newer(distPaths.fonts))
     .pipe(gulp.dest(distPaths.fonts))
 });
 
@@ -44,6 +47,7 @@ gulp.task('scripts', function() {
   // These files are processed in order, instead of globbing js/*
   // as site requires flexslider requires jquery
   gulp.src(assetPaths.scripts)
+    .pipe(newer(distPaths.scripts + '/site.js'))
     .pipe(uglify())
     .pipe(concat('site.js'))
     .pipe(gulp.dest(distPaths.scripts))
@@ -51,6 +55,7 @@ gulp.task('scripts', function() {
 
 gulp.task('images', function () {
   gulp.src(assetPaths.images)
+    .pipe(newer(distPaths.images))
     .pipe(imagemin({
       progressive: true,
       optimizationLevel: 5,
