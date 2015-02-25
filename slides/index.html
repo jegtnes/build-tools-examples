@@ -4,10 +4,10 @@
 	<head>
 		<meta charset="utf-8">
 
-		<title>reveal.js - The HTML Presentation Framework</title>
+		<title>Build Tools</title>
 
-		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
-		<meta name="author" content="Hakim El Hattab">
+		<meta name="description" content="A presentation about using build tools">
+		<meta name="author" content="Alex Jegtnes">
 
 		<meta name="apple-mobile-web-app-capable" content="yes" />
 		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
@@ -100,6 +100,18 @@
 				<section data-background="img/rabbit-hole.jpg">
 				</section>
 
+				<section data-autoslide="750">
+					<h1>task runners?</h1>
+					<h1 class="fragment" data-autoslide="750">build tools?</h1>
+					<h1 class="fragment" data-autoslide="750">build runners?</h1>
+					<h1 class="fragment" data-autoslide="750">task tools?</h1>
+					<h1 class="fragment">are we human or are we dancer?</h1>
+				</section>
+
+				<section>
+					<img src="img/fucks.gif" alt="" width="800">
+				</section>
+
 				<section>
 					<h1>Making our life easier by automating stuff</h1>
 				</section>
@@ -109,8 +121,8 @@
 					<h2>the OG of build tools</h2>
 				</section>
 
-				<section data-background-video="img/funkychickens.mp4">
-					<h1>alex, swap this with gif plz</h1>
+				<section>
+					<img src="img/funkychickens.gif" alt="">
 				</section>
 
 				<section data-background="img/haha.jpg">
@@ -173,6 +185,10 @@ grunt.initConfig({
 						</code></pre>
 				</section>
 
+				<section>
+					<h1>Configuration > code</h1>
+				</section>
+
 				<section data-background="img/gulp.jpg">
 					<div class="translucent">
 						<h1>Gulp</h1>
@@ -180,6 +196,9 @@ grunt.initConfig({
 						<h2 class="fragment">1311 plugins</h2>
 						<h2 class="fragment">since July 2013</h2>
 					</div>
+				</section>
+
+				<section data-background="img/pipes.jpg">
 				</section>
 
 				<section>
@@ -194,6 +213,10 @@ gulp.task('scripts', function() {
 					</code></pre>
 				</section>
 
+				<section>
+					<h1>Code > configuration</h1>
+				</section>
+
 				<section data-background="img/broccoli.jpg">
 					<div class="translucent">
 						<h1>Broccoli</h1>
@@ -201,6 +224,12 @@ gulp.task('scripts', function() {
 						<h2 class="fragment">198 plugins</h2>
 						<h2 class="fragment">since January 2014</h2>
 					</div>
+				</section>
+
+				<section data-background="img/what.jpg">
+				</section>
+
+				<section data-background="img/broccoli-derp.jpg">
 				</section>
 
 				<section>
@@ -214,27 +243,6 @@ var concatenated = concat(sourceTree, {
   outputFile: 'dist/standalone.js',
 });
 					</code></pre>
-				</section>
-
-				<section>
-					<h2>Pretty Code</h2>
-					<pre><code data-trim contenteditable>
-function linkify( selector ) {
-  if( supports3DTransforms ) {
-
-    var nodes = document.querySelectorAll( selector );
-
-    for( var i = 0, len = nodes.length; i &lt; len; i++ ) {
-      var node = nodes[i];
-
-      if( !node.className ) {
-        node.className += ' roll';
-      }
-    }
-  }
-}
-					</code></pre>
-					<p>Code syntax highlighting courtesy of <a href="http://softwaremaniacs.org/soft/highlight/en/description/">highlight.js</a>.</p>
 				</section>
 			</div>
 
