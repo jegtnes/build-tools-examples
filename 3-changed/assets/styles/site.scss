@@ -1,0 +1,16 @@
+@import 'flexslider';
+
+h1 {
+  font: 3em sans-serif;
+  text-align: center;
+}
+
+h1:before,
+h1:after {
+  content: '~*~*~';
+}
+
+.flexslider {
+  margin: 0 auto;
+  width: 40em;
+}
