@@ -87,8 +87,8 @@ gulp.task('criticalCSS', function () {
     minify: true,
     width: 320,
     height: 480
-  }
-});
+  })
+})
 
 gulp.task('inlineCriticalCSS', ['criticalCSS'], function() {
   return gulp.src('./index.html')
