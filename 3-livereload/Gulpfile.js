@@ -3,6 +3,8 @@ var sass = require('gulp-sass');
 var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
 var imagemin = require('gulp-imagemin');
+var browserSync = require('browser-sync');
+var reload = browserSync.reload;
 
 var assetPaths = {
   scripts: ['assets/scripts/jquery.js',
@@ -10,7 +12,8 @@ var assetPaths = {
             'assets/scripts/site.js'],
   images:   'assets/images/**/*.jpg',
   fonts:    'assets/fonts/**/*',
-  styles:   'assets/styles/site.scss'
+  styles:   'assets/styles/site.scss',
+  html:     './*.html'
 }
 
 var distPaths = {
@@ -27,6 +30,7 @@ gulp.task('sass', function() {
       outputStyle: "compressed"
     }))
     .pipe(gulp.dest(distPaths.styles))
+    .pipe(reload({stream: true}))
 });
 
 // Flexslider uses an icon font and our CSS has a relative path.
@@ -58,6 +62,17 @@ gulp.task('watch', function() {
   gulp.watch(assetPaths.scripts, ['scripts']);
   gulp.watch(assetPaths.styles, ['sass']);
   gulp.watch(assetPaths.images, ['images']);
+});
+
+gulp.task('serve', ['sass'], function() {
+  browserSync({
+    server: "./"
+  });
+
+  gulp.watch(assetPaths.scripts, ['scripts']).on('change', reload);
+  gulp.watch(assetPaths.styles, ['sass']);
+  gulp.watch(assetPaths.images, ['images']).on('change', reload);
+  gulp.watch(assetPaths.html).on('change', reload);
 });
 
 // When running the Styles task, move over fonts before compiling Sass
